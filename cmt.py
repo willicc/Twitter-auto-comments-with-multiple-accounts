@@ -27,7 +27,8 @@ password = driver.find_element_by_name("password")
 password.send_keys("twitter123@#$%") #replace with your valid twitter password
 password.send_keys(Keys.ENTER)
 time.sleep(5)
-driver.get("https://twitter.com/elonmusk/status/1708660084992029126")  #replace with your url where you  wanted to auto cmts to that post 
+with open('urltwitter.txt', 'r') as file:
+    urls = file.readlines() #replace with your url where you  wanted to auto cmts to that post 
 time.sleep(5)
 
 counter = 0
