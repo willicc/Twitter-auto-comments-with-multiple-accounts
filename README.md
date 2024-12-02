@@ -1,5 +1,5 @@
-# Twiiter-auto-comments-with-multiple-accounts
-Twiiter auto comments with multiple accounts using selenium with python
+# Twiiter auto like retweet comments with multiple accounts with different comment
+Twiiter auto like retweet comments with multiple accounts with different comment using selenium with python
 
 Here, I have added up to 2 accounts which will auto-login and auto-comment to the post. 
 
@@ -22,17 +22,11 @@ Download the latest version of the Chrome Driver from https://chromedriver.chrom
 👉if your selenium version is in latest version then 
 the code never run 
 
-👉open cmd and enter pip uninstall selenium
-
-And enter 
+pip uninstall selenium 
 
 pip install selenium==4.2.1
 or
 pip install selenium==4.2.0
-
-and hit enter 
-
-and 
 
 python -c "import selenium; print(selenium.__version__)"
 <to check the current version of selenium>
