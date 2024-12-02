@@ -10,7 +10,6 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
 import time
-import random
 
 commentsDict = ['good','amazing one','keep going','excellent','next video please','sub to your channel'
 'shared to others','made my day','keep it up','sensational','rock it','challenge it','post video daily'
