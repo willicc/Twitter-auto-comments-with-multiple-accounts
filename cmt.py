@@ -11,14 +11,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
 import time
 
-commentsDict = ['good','amazing one','keep going','excellent','next video please','sub to your channel'
-'shared to others','made my day','keep it up','sensational','rock it','challenge it','post video daily'
-'work was amazing','needed more edit','edit was awesome','what a video man','watched yesterday'
-'you are genius','faster than light','your work needed success','new fan of you','keep rock dude'
-'copy cat','link the video','listening','writing','reading','playing','awesome content','mind-blowing'
-'inspiring','unbelievable','impressive','outstanding','fantastic','stellar','remarkable','exceptional'
-'brilliant','stellar','top-notch','superb','jaw-dropping','captivating','extraordinary','stellar'
-'unreal performance','world-altering','masterful','exceptional artist','incomparable','artistic brilliance'] #replace with your words for comments to tweet
+commentsDict = ['good @elonmusk', 'amazing one @elonmusk', 'excellent', 'well done']  # Tambahkan komentar sesuai kebutuhan
+comment_iterator = iter(commentsDict)
 
 driver= webdriver.Chrome()
 driver.maximize_window()
@@ -37,12 +31,24 @@ driver.get("https://twitter.com/elonmusk/status/1708660084992029126")  #replace 
 time.sleep(5)
 
 counter = 0
-while True:
-    try:
+try:
+    while True:
+        retweet_button = driver.find_element_by_xpath("//div[@data-testid='retweet']/div").click() #retweet button
+        time.sleep(1)
         
-        # comment the word
+        retweet_button = driver.find_element_by_xpath("//div[@data-testid='retweetConfirm']/div").click() #retweet click #confirm
+        time.sleep(2)
+        
+        like_button = driver.find_element_by_xpath("//div[@data-testid='like']/div") #like button
+        like_button.click()
+        
+        time.sleep(2) 
+        
+        comment = next(comment_iterator)
         send_button = driver.find_element(By.CLASS_NAME, 'public-DraftStyleDefault-ltr')
-        send_button.send_keys(random.choice(commentsDict))
+        send_button.send_keys(comment)
+except StopIteration:
+    print("All comments have been used.")
         
         time.sleep(1)
         
@@ -52,7 +58,7 @@ while True:
         time.sleep(2)  
 
         counter += 1
-        if counter == 5: #Change '5' to 'how many comments you want to do for a post...
+        if counter == 1: #Change '5' to 'how many comments you want to do for a post...
             break
         
     except Exception as e:
@@ -80,12 +86,24 @@ driver.get("https://twitter.com/elonmusk/status/1708660084992029126")  #replace 
 time.sleep(7)
 
 counter = 0
-while True:
-    try:
+try:
+    while True:
+        retweet_button = driver.find_element_by_xpath("//div[@data-testid='retweet']/div").click() #retweet button
+        time.sleep(1)
         
-        # comment the word
+        retweet_button = driver.find_element_by_xpath("//div[@data-testid='retweetConfirm']/div").click() #retweet click #confirm
+        time.sleep(2)
+        
+        like_button = driver.find_element_by_xpath("//div[@data-testid='like']/div") #like button
+        like_button.click()
+        
+        time.sleep(2) 
+        
+        comment = next(comment_iterator)
         send_button = driver.find_element(By.CLASS_NAME, 'public-DraftStyleDefault-ltr')
-        send_button.send_keys(random.choice(commentsDict))
+        send_button.send_keys(comment)
+except StopIteration:
+    print("All comments have been used.")
         
         time.sleep(1)
         
@@ -95,7 +113,7 @@ while True:
         time.sleep(2)  
 
         counter += 1
-        if counter == 5: #Change '5' to 'how many comments you want to do for a post...
+        if counter == 1: #Change '5' to 'how many comments you want to do for a post...
             break
         
     except Exception as e:
